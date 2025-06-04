@@ -1,0 +1,40 @@
+@startuml u5
+	hide circle
+	skin rose
+	hide empty members
+	entity Socio {
+		*id : CHAR
+		documentoIdentidad : VARCHAR
+		apellidos : VARCHAR
+		nombres : VARCHAR
+		nacionalidad : CHAR
+		lugar de nacimiento : CHAR
+		fecha de nacimiento : DATE
+		género : CHAR
+		estado : CHAR
+	}
+	entity CondiciónSocio {
+		*id : INTEGER
+		idSocio : CHAR
+		condición : INTEGER
+		mes : INTEGER
+		año : CHAR
+		observación : TEXT
+		estado : CHAR
+	}
+	entity ImágenesSocio {
+		*id : CHAR
+		*nombreArchivoCodificado : TEXT
+		nombreArchivoOriginal : TEXT
+	}
+	entity RelaciónSocios {
+		*titular : CHAR
+		*familiar : CHAR
+		tipoRelación : INTEGER
+		estado : CHAR
+	}
+
+	Socio ||-d-|{ CondiciónSocio
+	Socio ||-r-|{ ImágenesSocio
+	Socio ||-u-o{ RelaciónSocios
+@enduml
